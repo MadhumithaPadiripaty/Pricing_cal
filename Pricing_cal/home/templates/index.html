@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing Configuration Management</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" >
+  <script src="{% static 'js/main.js' %}"defer></script>
+  <script src="{% static 'js/calculate.js' %}"defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Pricing Configuration</h1>
+    
+
+    <!-- Distance Base Price -->
+    <h2>Distance Base Price (DBP)</h2>
+    <table id="dbpTable" class="pricing-table">
+      <thead>
+        <tr>
+          <th>Day(s)</th>
+          <th>Up to KMs</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    
+    <!-- Time Multiplier Factor -->
+    <h2>Time Multiplier Factor (TMF)</h2>
+    <table id="tmfTable" class="pricing-table">
+      <thead>
+        <tr>
+          <th>From (minutes)</th>
+          <th>To (minutes)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    
+    <!-- Waiting Charges -->
+    <h2>Waiting Charges (WC)</h2>
+    <table id="wcTable" class="pricing-table">
+      <thead>
+        <tr>
+          <th>WaitingTime (minutes)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    
+    <button id="saveBtn" class="save-btn" onclick="calculatePrice()">Calculate Price</button>
+
+    <h3>Total Price: <span id="priceOutput">₹0.00</span></h3>
+
+    <button id="showHistoryBtn"> History</button>
+
+    <div id="historyContainer" style="display:none;">
+    <h2>Calculation History</h2>
+        <table id="historyTable" class="pricing-table">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Day</th>
+              <th>DBP</th>
+              <th>DAP</th>
+              <th>Totaldista</th>
+              <th>Tstart</th>
+              <th>Tend</th>
+              <th>WC Total</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+
+
+
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
